@@ -12,6 +12,7 @@
   },
   "preferGlobal": true,
   "dependencies": {
+    "multer": "",
     "mime": "1.2.x",
     "express": "^4.13.3",
     "optimist": "0.3.x",
