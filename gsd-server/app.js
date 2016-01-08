@@ -28,7 +28,6 @@ var reps = path.resolve('./repos');
   gs.repositories(reps);
   
   // all environments
-  app.set('port', port_number);
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'jade');
 
