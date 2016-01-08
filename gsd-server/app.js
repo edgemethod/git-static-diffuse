@@ -48,7 +48,7 @@ var reps = path.resolve('./repos');
   app.use(bodyParser.urlencoded({ extended: true }));
 
   app.use(methodOverride());
-  app.use(express.static(path.join(__dirname, 'public'), {"index": "index.html"}'}));
+  app.use(express.static(path.join(__dirname, 'public'), {"index": "index.html"}));
   app.use(require('stylus').middleware(path.join(__dirname, 'public')));
   //app.use(app.router);
 
