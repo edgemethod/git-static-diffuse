@@ -12,7 +12,6 @@ var path = require('path');
 
 // middleware
 var compress = require('compression');
-var favicon = require('serve-favicon');
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
@@ -42,7 +41,6 @@ function historyServer(reps, port_number){
 
 
 
-  app.use(favicon());
   app.use(compress());
   app.use(logger());
   app.use(bodyParser());
