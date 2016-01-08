@@ -9,6 +9,14 @@ var fs = require("fs"),
 var express = require('express');
 var http = require('http');
 var path = require('path');
+
+// middleware
+var compress = require('compression');
+var favicon = require('serve-favicon');
+var methodOverride = require('method-override');
+var bodyParser = require('body-parser');
+var logger = require('morgan');
+
 var port;
 
 
@@ -31,14 +39,17 @@ function historyServer(reps, port_number){
           next();
       }
   });
-  
-  app.use(express.favicon());
-  app.use(express.logger('dev'));
-  app.use(express.bodyParser());
-  app.use(express.methodOverride());
+
+
+
+  app.use(favicon());
+  app.use(compress());
+  app.use(logger());
+  app.use(bodyParser());
+  app.use(methodOverride());
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(require('stylus').middleware(path.join(__dirname, 'public')));
-  app.use(app.router);
+  //app.use(app.router);
 
   // development only
   if ('development' == app.get('env')) {
