@@ -23,7 +23,8 @@ var port;
 
 var app = express();
 
-  reps = reps || path.resolve('./repos');
+var reps = path.resolve('./repos');
+
   gs.repositories(reps);
   
   // all environments
