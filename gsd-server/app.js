@@ -15,6 +15,8 @@ var compress = require('compression');
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 var logger = require('morgan');
+var errorHandler = require('errorhandler');
+
 
 var port;
 
@@ -51,7 +53,7 @@ function historyServer(reps, port_number){
 
   // development only
   if ('development' == app.get('env')) {
-    app.use(express.errorHandler());
+    app.use(errorHandler());
   }
 
   app.get('/', function(req, res){
