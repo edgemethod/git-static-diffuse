@@ -14,8 +14,8 @@ var port;
 
 var app = express();
 
-function startServer(reps, port_number){
-  reps = reps || path.resolve('./');
+function historyServer(reps, port_number){
+  reps = reps || path.resolve('./repos');
   gs.repositories(reps);
   
   // all environments
@@ -84,4 +84,4 @@ function startServer(reps, port_number){
   
 }
 
-exports.start = startServer
+exports.start = historyServer
