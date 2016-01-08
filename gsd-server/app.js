@@ -23,7 +23,6 @@ var port;
 
 var app = express();
 
-function historyServer(reps, port_number){
   reps = reps || path.resolve('./repos');
   gs.repositories(reps);
   
@@ -97,6 +96,6 @@ function historyServer(reps, port_number){
   });
 */
 
-}
 
-exports.start = historyServer
+
+exports.history = app
