@@ -44,7 +44,7 @@ function historyServer(reps, port_number){
 
 
   app.use(compress());
-  app.use(logger());
+  app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
 
