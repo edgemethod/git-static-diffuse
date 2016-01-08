@@ -3,13 +3,13 @@ extends layout
 block content
 	p.page-type Repository
 	h1
-		a(href="./") / 
+		a(href="../") / 
 		= repo
 	p Available branches:
 	ul
 		each branch in branches
 			li
-				a(href="#{repo}/#{branch}")= branch
+				a(href="#{branch}")= branch
 				ul
 					li
-						a(href="#{repo}/#{branch}/build/index.html")= "latest"
+						a(href="#{branch}/build/index.html")= "latest"
