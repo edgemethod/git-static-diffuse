@@ -84,4 +84,4 @@ function historyServer(reps, port_number){
   
 }
 
-exports.start = historyServer
+exports.history = historyServer
