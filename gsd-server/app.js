@@ -78,10 +78,12 @@ function historyServer(reps, port_number){
 
   app.get('/:repo/:branchOrBranch/:file?*', gs.route());
 
+/*
   http.createServer(app).listen(app.get('port'), function(){
     console.log('Express server listening on port ' + app.get('port'));
   });
-  
+*/
+
 }
 
 exports.start = historyServer
