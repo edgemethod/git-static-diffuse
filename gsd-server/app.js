@@ -14,6 +14,7 @@ var path = require('path');
 var compress = require('compression');
 var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
+var multer = require('multer');
 var logger = require('morgan');
 var errorHandler = require('errorhandler');
 
@@ -45,7 +46,10 @@ function historyServer(reps, port_number){
 
   app.use(compress());
   app.use(logger());
-  app.use(bodyParser());
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(multer());
+
   app.use(methodOverride());
   app.use(express.static(path.join(__dirname, 'public')));
   app.use(require('stylus').middleware(path.join(__dirname, 'public')));
