@@ -163,8 +163,14 @@ exports.route = function() {
     }
 
     function serveNotFound() {
-      response.writeHead(404, {"Content-Type": "text/plain"});
-      response.end("File not found.");
+      if (!request.url.match("index.html$")) {
+        var possibleIndex = request.baseUrl + request.url.replace(/\/$/,'') + '/index.html';
+        response.redirect(possibleIndex);
+      } 
+      else {
+        response.writeHead(404, {"Content-Type": "text/plain"});
+        response.end("File not found.");          
+      }
     }
   }
 

@@ -48,7 +48,7 @@ var reps = path.resolve('./repos');
   app.use(bodyParser.urlencoded({ extended: true }));
 
   app.use(methodOverride());
-  app.use(express.static(path.join(__dirname, 'public'), {"index": "index.html"}));
+  app.use(express.static(path.join(__dirname, 'public')));
   app.use(require('stylus').middleware(path.join(__dirname, 'public')));
   //app.use(app.router);
 
@@ -67,16 +67,16 @@ var reps = path.resolve('./repos');
         // Clean up the name
         return folder.replace(gs.repositories() + '/', '');
       });
+      
       console.log(folders)
-      res.render('index', { page_title: 'Repositories', repos: folders });
+      res.render('index', { baseUrl: req.baseUrl, page_title: 'Repositories', repos: folders });
     });
   });
 
   app.get('/:repo?', function(req, res){
     var repo = req.params.repo
-    console.log('here')
     gs.getBranches(repo, function(err, branches){
-      res.render('repo', { page_title: repo, repo: repo, branches: branches });
+      res.render('repo', { baseUrl: req.baseUrl, page_title: repo, repo: repo, branches: branches });
     });
   });
 
@@ -84,7 +84,7 @@ var reps = path.resolve('./repos');
     var repo = req.params.repo,
         branch = req.params.branch;
     gs.getBranchCommits(repo, branch, function(err, commits){
-      res.render('branch', { page_title: repo + ' - ' + branch, repo: repo, branch: branch, commits: commits });
+      res.render('branch', { baseUrl: req.baseUrl, page_title: repo + ' - ' + branch, repo: repo, branch: branch, commits: commits });
     });
   });
 
