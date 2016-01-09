@@ -56,7 +56,8 @@ var reps = path.resolve('./repos');
   if ('development' == app.get('env')) {
     app.use(errorHandler());
   }
-
+  
+/*
   app.get('/', function(req, res){
     fs.readdir(gs.repositories(), function(err, files){
       var folders = files.map(function(file) {
@@ -72,7 +73,8 @@ var reps = path.resolve('./repos');
       res.render('index', { baseUrl: req.baseUrl, page_title: 'Repositories', repos: folders });
     });
   });
-
+*/
+  
   app.get('/:repo?', function(req, res){
     var repo = req.params.repo
     gs.getBranches(repo, function(err, branches){
@@ -98,4 +100,4 @@ var reps = path.resolve('./repos');
 
 
 
-exports.history = app
+exports.gitStatic = app
