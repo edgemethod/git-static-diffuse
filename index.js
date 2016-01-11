@@ -1,7 +1,6 @@
 var child = require("child_process"),
     mime = require("mime"),
-    path = require("path"),
-    moment = requore("moment");
+    path = require("path");
 
 var shaRe = /^[0-9a-f]{40}$/,
     emailRe = /^<.*@.*>$/;

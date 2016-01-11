@@ -2,12 +2,18 @@ extends layout
 
 block content
   .ui.relaxed.selection.list
-    .header #{repo}/#{branch}
+    .header 
+      //#{repo}/#{branch}
+      | Time Traveller
+      
     each commit in commits
       a.item(href="#{baseUrl}/#{repo}/#{commit.sha.substring(0,6)}/build")
+        .right.floated.content
+          i.icon.right.chevron(style="margin:0.5rem")
+            
         i.large.code.middle.aligned.icon
         .content
-          .header #{moment(commit.date).format('MMMM Do YYYY, h:mm:ss a')}#{commit.author} 
-          .description
-            strong #{commit.message}
-            strong #{commit.sha.substring(0,6)}
+          .header #{moment(commit.date).format('MMM Do YYYY, h:mma')} #{commit.author} 
+          .description 
+            | #{commit.message} 
+            small #{commit.sha.substring(0,6)}

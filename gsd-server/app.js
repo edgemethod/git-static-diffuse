@@ -22,6 +22,7 @@ var port;
 
 
 var app = express();
+app.locals.moment = require('moment');
 
 var reps = path.resolve('./repos');
 
